@@ -1,11 +1,15 @@
 ﻿using Common;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Security;
 using System.Security.Principal;
+using System.ServiceModel;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using SecurityException = Common.SecurityException;
 
 namespace Server
 {
@@ -42,6 +46,41 @@ namespace Server
                 SecurityIdentifier sid = (SecurityIdentifier)group.Translate(typeof(SecurityIdentifier));
                 string name = (sid.Translate(typeof(NTAccount))).ToString();
                 Console.WriteLine(name);
+            }
+        }
+
+        public void CreateFile(string fileName)
+        {
+
+            //server kreira fajl za klijenta pod svojim imenom
+            Console.WriteLine($"Process Identity:{WindowsIdentity.GetCurrent().Name}");
+            try
+            {
+                StreamWriter sw = File.CreateText(fileName);
+                sw.Close();
+            }
+            catch (Exception e)
+            {
+                throw new FaultException<SecurityException>(new SecurityException(e.Message));
+            }
+
+            //server kreira fajl u ime klijenta (implicitna impersonifikacija)
+            IIdentity identity = Thread.CurrentPrincipal.Identity;
+            WindowsIdentity windowsIdentity = identity as WindowsIdentity;
+
+            using (windowsIdentity.Impersonate())
+            {
+                Console.WriteLine($"Process Identity :{WindowsIdentity.GetCurrent().Name}");
+                try
+                {
+                    StreamWriter sw = File.CreateText(fileName + 1);
+                    sw.Close();
+                }
+                catch (Exception e)
+                {
+                    throw new FaultException<SecurityException>(new SecurityException(e.Message));
+                }
+
             }
         }
 

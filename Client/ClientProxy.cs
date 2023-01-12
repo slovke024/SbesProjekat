@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,8 @@ namespace Client
         }
         public ClientProxy(NetTcpBinding binding, EndpointAddress address) : base(binding, address)
         {
+            //Ovde dozvoljavamo klijentu da bude impersonifikovan
+            Credentials.Windows.AllowedImpersonationLevel = System.Security.Principal.TokenImpersonationLevel.Impersonation;
             factory = this.CreateChannel();
         }
 
@@ -26,6 +29,22 @@ namespace Client
             try
             {
                 factory.AddUser(username, password);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: {0}", e.Message);
+            }
+        }
+
+        public void CreateFile(string fileName)
+        {
+            try
+            {
+                factory.CreateFile(fileName);
+            }
+            catch (FaultException<SecurityException> e)
+            {
+                Console.WriteLine("Error: {0}", e.Detail.Message);
             }
             catch (Exception e)
             {

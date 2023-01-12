@@ -26,8 +26,13 @@ namespace Client
 
             using (ClientProxy proxy = new ClientProxy(binding, endpointAddress))
             {
+                //testiranja
+                //doda usera
                 proxy.AddUser("pera", "peric");
+                //ne doda jer postoji vec
                 proxy.AddUser("pera", "peric");
+                //pravi prazan txt fajl
+                proxy.CreateFile("fajl");
             }
 
             Console.ReadLine();

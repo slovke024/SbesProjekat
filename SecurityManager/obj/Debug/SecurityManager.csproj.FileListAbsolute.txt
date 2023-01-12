@@ -16,3 +16,18 @@ C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\SecurityManager\bin\Debug\C
 C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\SecurityManager\obj\Debug\SecurityManager.csproj.CopyComplete
 C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\SecurityManager\obj\Debug\SecurityManager.exe
 C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\SecurityManager\obj\Debug\SecurityManager.pdb
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SecurityManager\bin\Debug\SecurityManager.exe.config
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SecurityManager\bin\Debug\SecurityManager.exe
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SecurityManager\bin\Debug\SecurityManager.pdb
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SecurityManager\bin\Debug\Client.exe
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SecurityManager\bin\Debug\Common.dll
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SecurityManager\bin\Debug\Client.pdb
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SecurityManager\bin\Debug\Client.exe.config
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SecurityManager\bin\Debug\Common.pdb
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SecurityManager\bin\Debug\Common.dll.config
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SecurityManager\obj\Debug\SecurityManager.csproj.AssemblyReference.cache
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SecurityManager\obj\Debug\SecurityManager.csproj.SuggestedBindingRedirects.cache
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SecurityManager\obj\Debug\SecurityManager.csproj.CoreCompileInputs.cache
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SecurityManager\obj\Debug\SecurityManager.csproj.CopyComplete
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SecurityManager\obj\Debug\SecurityManager.exe
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SecurityManager\obj\Debug\SecurityManager.pdb
