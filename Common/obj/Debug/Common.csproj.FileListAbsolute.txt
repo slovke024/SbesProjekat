@@ -1,0 +1,10 @@
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SBESProjekatTim8\Common\obj\Debug\Common.csproj.AssemblyReference.cache
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SBESProjekatTim8\Common\obj\Debug\Common.csproj.SuggestedBindingRedirects.cache
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SBESProjekatTim8\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\Common\obj\Debug\Common.csproj.AssemblyReference.cache
+C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\Common\bin\Debug\Common.dll.config
+C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\Common\bin\Debug\Common.dll
+C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\Common\bin\Debug\Common.pdb
+C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\Common\obj\Debug\Common.dll
+C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\Common\obj\Debug\Common.pdb

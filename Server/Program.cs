@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.ServiceModel;
-using System.ServiceModel.Channels;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,38 +14,22 @@ namespace Server
         static void Main(string[] args)
         {
             NetTcpBinding binding = new NetTcpBinding();
-            string address = "net.tcp://localhost:9999/Server";
+            string address = "net.tcp://localhost:9999/SecurityService";
 
-            ServiceHost host = new ServiceHost(typeof(EchoService));
-            host.AddServiceEndpoint(typeof(IEchoService), binding, address);
+            binding.Security.Mode = SecurityMode.Transport;
+            binding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Windows;
+            binding.Security.Transport.ProtectionLevel = System.Net.Security.ProtectionLevel.EncryptAndSign;
+
+            ServiceHost host = new ServiceHost(typeof(SecurityServer));
+            host.AddServiceEndpoint(typeof(ISecurityService), binding, address);
+
             host.Open();
 
-            Console.WriteLine("Server is running...");
-            Console.WriteLine("Press enter to stop.");
+            Console.WriteLine("Korisnik koji je pokrenuo servera :" + WindowsIdentity.GetCurrent().Name);
+
+            Console.WriteLine("Servis je pokrenut.");
+
             Console.ReadLine();
-
-            host.Close();
         }
-    }
-}
-
-[ServiceContract]
-interface IEchoService
-{
-    [OperationContract]
-    string Echo(string input);
-}
-
-class EchoService : IEchoService
-{
-    public string Echo(string input)
-    {
-        // Get the IP address and port of the client
-        var remoteEndpointMessageProperty = OperationContext.Current.IncomingMessageProperties[RemoteEndpointMessageProperty.Name] as RemoteEndpointMessageProperty;
-        var clientIP = remoteEndpointMessageProperty.Address;
-        var clientPort = remoteEndpointMessageProperty.Port;
-
-        Console.WriteLine("Client IP: {0}, Port: {1}", clientIP, clientPort);
-        return input;
     }
 }

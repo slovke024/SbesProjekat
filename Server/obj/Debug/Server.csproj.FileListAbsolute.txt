@@ -1,8 +1,21 @@
-C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SBES_Projekat\Server\bin\Debug\Server.exe.config
-C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SBES_Projekat\Server\bin\Debug\Server.exe
-C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SBES_Projekat\Server\bin\Debug\Server.pdb
-C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SBES_Projekat\Server\obj\Debug\Server.csproj.AssemblyReference.cache
-C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SBES_Projekat\Server\obj\Debug\Server.csproj.SuggestedBindingRedirects.cache
-C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SBES_Projekat\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
-C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SBES_Projekat\Server\obj\Debug\Server.exe
-C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SBES_Projekat\Server\obj\Debug\Server.pdb
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SBESProjekatTim8\Server\obj\Debug\Server.csproj.AssemblyReference.cache
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SBESProjekatTim8\Server\obj\Debug\Server.csproj.SuggestedBindingRedirects.cache
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SBESProjekatTim8\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\Server\obj\Debug\Server.csproj.AssemblyReference.cache
+C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\Server\obj\Debug\Server.csproj.SuggestedBindingRedirects.cache
+C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\Server\bin\Debug\Server.exe.config
+C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\Server\bin\Debug\Server.exe
+C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\Server\bin\Debug\Server.pdb
+C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\Server\bin\Debug\Client.exe
+C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\Server\bin\Debug\Common.dll
+C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\Server\bin\Debug\SecurityManager.exe
+C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\Server\bin\Debug\Client.pdb
+C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\Server\bin\Debug\Client.exe.config
+C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\Server\bin\Debug\Common.pdb
+C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\Server\bin\Debug\Common.dll.config
+C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\Server\bin\Debug\SecurityManager.pdb
+C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\Server\bin\Debug\SecurityManager.exe.config
+C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\Server\obj\Debug\Server.csproj.CopyComplete
+C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\Server\obj\Debug\Server.exe
+C:\Users\slobara\Desktop\New folder\SBESProjekatTim8\Server\obj\Debug\Server.pdb
