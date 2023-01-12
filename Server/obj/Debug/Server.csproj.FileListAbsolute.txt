@@ -1,0 +1,8 @@
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SBES_Projekat\Server\bin\Debug\Server.exe.config
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SBES_Projekat\Server\bin\Debug\Server.exe
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SBES_Projekat\Server\bin\Debug\Server.pdb
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SBES_Projekat\Server\obj\Debug\Server.csproj.AssemblyReference.cache
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SBES_Projekat\Server\obj\Debug\Server.csproj.SuggestedBindingRedirects.cache
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SBES_Projekat\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SBES_Projekat\Server\obj\Debug\Server.exe
+C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\SBES_Projekat\Server\obj\Debug\Server.pdb
