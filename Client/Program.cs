@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Principal;
@@ -21,57 +22,71 @@ namespace Client
 
             Console.WriteLine("Korisnik koji je pokrenuo klijenta je : " + WindowsIdentity.GetCurrent().Name);
 
+            ChannelFactory<ISecurityService> factory = new ChannelFactory<ISecurityService>(binding, address);
+            ISecurityService channel;
             EndpointAddress endpointAddress = new EndpointAddress(new Uri(address),
                 EndpointIdentity.CreateUpnIdentity("wcfServer"));
 
             using (ClientProxy proxy = new ClientProxy(binding, endpointAddress))
             {
+                while (true)
+                {
+                    channel = factory.CreateChannel();
+                    ShowMenu();
+                    var option = Console.ReadLine();
+                    if (option == "8")
+                        break;
+
+                    switch (option)
+                    {
+                        case "1":
+                            // Show folder content
+                            Console.WriteLine("Ispisi sadrzaj foldera\n");
+                            break;
+                        case "2":
+                            // Read file
+                            Console.WriteLine("Iscitaj fajl\n");
+                            break;
+                        case "3":
+                            // Create folder
+                            Console.WriteLine("Kreiraj folder\n");
+                            break;
+                        case "4":
+                            // Create file
+                            Console.WriteLine("Kreiraj fajl\n");
+                            Console.WriteLine("Unesite ime fajla:\n");
+                            string imeFajla = Console.ReadLine();
+                            channel.CreateFile(imeFajla);
+                            break;
+                        case "5":
+                            // Delete
+                            Console.WriteLine("Obrisi fajl\n");
+                            break;
+                        case "6":
+                            // Rename
+                            Console.WriteLine("preimenuj fajl\n");
+                            break;
+                        case "7":
+                            // Move to
+                            Console.WriteLine("premesti fajl\n");
+                            break;
+                        default:
+                            Console.WriteLine("Invalid option. Please try again.");
+                            break;
+                    }
+                }
                 //testiranja
                 //doda usera
-                proxy.AddUser("pera", "peric");
+                //proxy.AddUser("pera", "peric");
                 //ne doda jer postoji vec
-                proxy.AddUser("pera", "peric");
+                //proxy.AddUser("pera", "peric");
                 //pravi prazan txt fajl
-                proxy.CreateFile("fajl");
+                //proxy.CreateFile("fajl");
             }
 
             Console.ReadLine();
 
-            while (true)
-            {
-                ShowMenu();
-                var option = Console.ReadLine();
-                if (option == "8")
-                    break;
-
-                switch (option)
-                {
-                    case "1":
-                        // Show folder content
-                        break;
-                    case "2":
-                        // Read file
-                        break;
-                    case "3":
-                        // Create folder
-                        break;
-                    case "4":
-                        // Create file
-                        break;
-                    case "5":
-                        // Delete
-                        break;
-                    case "6":
-                        // Rename
-                        break;
-                    case "7":
-                        // Move to
-                        break;
-                    default:
-                        Console.WriteLine("Invalid option. Please try again.");
-                        break;
-                }
-            }
+            
         }
 
         static void ShowMenu()

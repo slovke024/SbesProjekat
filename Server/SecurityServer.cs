@@ -51,8 +51,9 @@ namespace Server
 
         public void CreateFile(string fileName)
         {
-
+            /*
             //server kreira fajl za klijenta pod svojim imenom
+
             Console.WriteLine($"Process Identity:{WindowsIdentity.GetCurrent().Name}");
             try
             {
@@ -63,6 +64,8 @@ namespace Server
             {
                 throw new FaultException<SecurityException>(new SecurityException(e.Message));
             }
+            */
+
 
             //server kreira fajl u ime klijenta (implicitna impersonifikacija)
             IIdentity identity = Thread.CurrentPrincipal.Identity;
@@ -73,8 +76,22 @@ namespace Server
                 Console.WriteLine($"Process Identity :{WindowsIdentity.GetCurrent().Name}");
                 try
                 {
-                    StreamWriter sw = File.CreateText(fileName + 1);
-                    sw.Close();
+                    string currentDirectory = Environment.CurrentDirectory;
+                    string solutionPath = Path.GetFullPath(Path.Combine(currentDirectory, "..", ".."));
+                    string bazePath = Path.Combine(solutionPath, "Baza");
+                    string filePath = Path.Combine(bazePath,fileName+".txt");
+                    
+                    try
+                    {
+                        StreamWriter sw = File.CreateText(filePath);
+                        sw.Close();
+                    }
+                    catch (NotImplementedException ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+
+                    
                 }
                 catch (Exception e)
                 {
