@@ -67,5 +67,21 @@ namespace Client
                 Console.WriteLine("Error: {0}", e.Message);
             }
         }
+        public (List<string> Files, List<string> Directories) ShowFolderContent(string folderName)
+        {
+            try
+            {
+                return factory.ShowFolderContent(folderName);
+            }
+            catch (FaultException<SecurityException> e)
+            {
+                Console.WriteLine("Error: {0}", e.Detail.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: {0}", e.Message);
+            }
+            return (new List<string>(), new List<string>());
+        }
     }
 }

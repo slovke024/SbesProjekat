@@ -20,7 +20,11 @@ namespace Common
 
         [OperationContract]
         [FaultContract(typeof(SecurityException))]
-        void CreateFolder(string fileName);
+        void CreateFolder(string folderName);
+
+        [OperationContract]
+        [FaultContract(typeof(SecurityException))]
+        (List<string> Files, List<string> Directories) ShowFolderContent(string folderName);
 
     }
 }

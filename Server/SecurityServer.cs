@@ -115,5 +115,16 @@ namespace Server
 
             }
         }
+
+        public (List<string> Files, List<string> Directories) ShowFolderContent(string folderName)
+        {
+            string currentDirectory = Environment.CurrentDirectory;
+            string solutionPath = Path.GetFullPath(Path.Combine(currentDirectory, "..", ".."));
+            string folderPath = Path.Combine(solutionPath, folderName);
+            List<string> files = Directory.GetFiles(folderPath).ToList();
+            List<string> directories = Directory.GetDirectories(folderPath).ToList();
+            return (files, directories);
+        }
+        
     }
 }

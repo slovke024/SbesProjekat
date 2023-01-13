@@ -1,6 +1,7 @@
 ﻿using Common;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Principal;
 using System.ServiceModel;
@@ -42,6 +43,35 @@ namespace Client
                         case "1":
                             // Show folder content
                             Console.WriteLine("Ispisi sadrzaj foldera\n");
+                            Console.WriteLine("Unesite ime foldera:");
+                            string imeFoldera = Console.ReadLine();
+                            (List<string> Files, List<string> Directories) folderContent = channel.ShowFolderContent(imeFoldera);
+                            List<string> files = folderContent.Files;
+                            List<string> directories = folderContent.Directories;
+                            if (files.Count == 0)
+                            {
+                                Console.WriteLine("No files in this folder.");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Files:");
+                                foreach (string file in files)
+                                {
+                                    Console.WriteLine(file);
+                                }
+                            }
+                            if (directories.Count == 0)
+                            {
+                                Console.WriteLine("No subdirectories in this folder.");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Directories:");
+                                foreach (string directory in directories)
+                                {
+                                    Console.WriteLine(directory);
+                                }
+                            }
                             break;
                         case "2":
                             // Read file
@@ -51,8 +81,8 @@ namespace Client
                             // Create folder
                             Console.WriteLine("Kreiraj folder\n");
                             Console.WriteLine("Unesite ime foldera:\n");
-                            string imeFoldera = Console.ReadLine();
-                            channel.CreateFile(imeFoldera);
+                            string imeFoldera1 = Console.ReadLine();
+                            channel.CreateFile(imeFoldera1);
                             break;
                         case "4":
                             // Create file
