@@ -83,5 +83,23 @@ namespace Client
             }
             return (new List<string>(), new List<string>());
         }
+        public string ReadFile(string fileName)
+        {
+            try
+            {
+                factory.ReadFile(fileName);
+            }
+            catch (FaultException<SecurityException> e)
+            {
+                Console.WriteLine("Error: {0}", e.Detail.Message);
+                return null;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: {0}", e.Message);
+                return null;
+            }
+            return factory.ReadFile(fileName);
+        }
     }
 }

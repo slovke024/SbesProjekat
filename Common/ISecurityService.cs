@@ -26,5 +26,9 @@ namespace Common
         [FaultContract(typeof(SecurityException))]
         (List<string> Files, List<string> Directories) ShowFolderContent(string folderName);
 
+        [OperationContract]
+        [FaultContract(typeof(SecurityException))]
+        string ReadFile(string fileName);
+
     }
 }

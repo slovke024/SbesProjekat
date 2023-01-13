@@ -125,6 +125,26 @@ namespace Server
             List<string> directories = Directory.GetDirectories(folderPath).ToList();
             return (files, directories);
         }
-        
+
+        public string ReadFile(string fileName)
+        {
+            string currentDirectory = Environment.CurrentDirectory;
+            string solutionPath = Path.GetFullPath(Path.Combine(currentDirectory, "..", ".."));
+            string bazePath = Path.Combine(solutionPath, "Baza");
+            string folderPath = Path.Combine(bazePath, fileName);
+            string content = "";
+            try
+            {
+                using (StreamReader sr = new StreamReader(folderPath))
+                {
+                    content = sr.ReadToEnd();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error reading file: " + ex.Message);
+            }
+            return content;
+        }
     }
 }

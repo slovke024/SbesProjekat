@@ -76,6 +76,20 @@ namespace Client
                         case "2":
                             // Read file
                             Console.WriteLine("Iscitaj fajl\n");
+                            Console.WriteLine("Unesite ime fajla:");
+                            string fileName = Console.ReadLine();
+                            string content = channel.ReadFile(fileName);
+
+                            if (!string.IsNullOrEmpty(content))
+                            {
+                                Console.WriteLine("Sadrzaj fajla:");
+                                Console.WriteLine(content);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Greska prilikom citanja.");
+                            }
+                            Console.ReadLine();
                             break;
                         case "3":
                             // Create folder
