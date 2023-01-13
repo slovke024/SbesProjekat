@@ -101,5 +101,21 @@ namespace Client
             }
             return factory.ReadFile(fileName);
         }
+
+        public void Delete(string fileName)
+        {
+            try
+            {
+                factory.Delete(fileName);
+            }
+            catch (FaultException<SecurityException> e)
+            {
+                Console.WriteLine("Error: {0}", e.Detail.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: {0}", e.Message);
+            }
+        }
     }
 }

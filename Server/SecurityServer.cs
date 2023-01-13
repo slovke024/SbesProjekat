@@ -146,5 +146,21 @@ namespace Server
             }
             return content;
         }
+
+        public void Delete(string fileName)
+        {
+            try
+            {
+                string currentDirectory = Environment.CurrentDirectory;
+                string solutionPath = Path.GetFullPath(Path.Combine(currentDirectory, "..", ".."));
+                string bazePath = Path.Combine(solutionPath, "Baza");
+                string filePath = Path.Combine(bazePath, fileName);
+                File.Delete(filePath);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: {0}", e.Message);
+            }
+        }
     }
 }

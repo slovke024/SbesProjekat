@@ -108,6 +108,9 @@ namespace Client
                         case "5":
                             // Delete
                             Console.WriteLine("Obrisi fajl\n");
+                            Console.WriteLine("Unesite naziv fajla koji hocete da obrisete:");
+                            string imeFajla1 = Console.ReadLine();
+                            channel.Delete(imeFajla1);
                             break;
                         case "6":
                             // Rename
