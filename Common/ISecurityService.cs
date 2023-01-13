@@ -34,5 +34,8 @@ namespace Common
         [FaultContract(typeof(SecurityException))]
         void Delete(string fileName);
 
+        [OperationContract]
+        [FaultContract(typeof(SecurityException))]
+        bool Rename(string currentFileName, string newFileName);
     }
 }

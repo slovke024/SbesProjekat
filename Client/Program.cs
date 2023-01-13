@@ -115,6 +115,14 @@ namespace Client
                         case "6":
                             // Rename
                             Console.WriteLine("preimenuj fajl\n");
+                            Console.Write("Unesi trenutno ime fajla: ");
+                            string currentFileName = Console.ReadLine();
+                            Console.Write("Unesi novo ime fajla: ");
+                            string newFileName = Console.ReadLine();
+                            if (channel.Rename(currentFileName, newFileName))
+                                Console.WriteLine("Ime fajla uspesno promenjeno!");
+                            else
+                                Console.WriteLine("Neuspesno preimenovanje");
                             break;
                         case "7":
                             // Move to

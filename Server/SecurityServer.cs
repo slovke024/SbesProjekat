@@ -162,5 +162,31 @@ namespace Server
                 Console.WriteLine("Error: {0}", e.Message);
             }
         }
+        public bool Rename(string currentFileName, string newFileName)
+        {
+            try
+            {
+                string currentDirectory = Environment.CurrentDirectory;
+                string solutionPath = Path.GetFullPath(Path.Combine(currentDirectory, "..", ".."));
+                string bazePath = Path.Combine(solutionPath, "Baza");
+                string currentFilePath = Path.Combine(bazePath, currentFileName);
+                string newFilePath = Path.Combine(bazePath, newFileName);
+                if (File.Exists(currentFilePath))
+                {
+                    File.Move(currentFilePath, newFilePath);
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("Fajl ne postoji");
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: {0}", e.Message);
+                return false;
+            }
+        }
     }
 }

@@ -117,5 +117,22 @@ namespace Client
                 Console.WriteLine("Error: {0}", e.Message);
             }
         }
+
+        public bool Rename(string currentFileName, string newFileName)
+        {
+            try
+            {
+                factory.Rename(currentFileName, newFileName);
+            }
+            catch (FaultException<SecurityException> e)
+            {
+                Console.WriteLine("Error: {0}", e.Detail.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: {0}", e.Message);
+            }
+            return false;
+        }
     }
 }
