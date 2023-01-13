@@ -50,6 +50,9 @@ namespace Client
                         case "3":
                             // Create folder
                             Console.WriteLine("Kreiraj folder\n");
+                            Console.WriteLine("Unesite ime foldera:\n");
+                            string imeFoldera = Console.ReadLine();
+                            channel.CreateFile(imeFoldera);
                             break;
                         case "4":
                             // Create file

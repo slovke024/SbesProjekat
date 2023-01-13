@@ -76,22 +76,14 @@ namespace Server
                 Console.WriteLine($"Process Identity :{WindowsIdentity.GetCurrent().Name}");
                 try
                 {
+                    
                     string currentDirectory = Environment.CurrentDirectory;
                     string solutionPath = Path.GetFullPath(Path.Combine(currentDirectory, "..", ".."));
                     string bazePath = Path.Combine(solutionPath, "Baza");
-                    string filePath = Path.Combine(bazePath,fileName+".txt");
-                    
-                    try
-                    {
-                        StreamWriter sw = File.CreateText(filePath);
-                        sw.Close();
-                    }
-                    catch (NotImplementedException ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                    }
-
-                    
+                    string filePath = Path.Combine(bazePath,fileName);
+                    StreamWriter sw = File.CreateText(filePath);
+ 
+                    sw.Close();
                 }
                 catch (Exception e)
                 {
@@ -101,5 +93,27 @@ namespace Server
             }
         }
 
+        public void CreateFolder(string folderName)
+        {
+            
+            IIdentity identity = Thread.CurrentPrincipal.Identity;
+            WindowsIdentity windowsIdentity = identity as WindowsIdentity;
+
+            using (windowsIdentity.Impersonate())
+            {
+                Console.WriteLine($"Process Identity :{WindowsIdentity.GetCurrent().Name}");
+                try
+                {
+                    string currentDirectory = Environment.CurrentDirectory;
+                    string folderPath = Path.Combine(currentDirectory, folderName);
+                    Directory.CreateDirectory(folderPath);
+                }
+                catch (Exception e)
+                {
+                    throw new FaultException<SecurityException>(new SecurityException(e.Message));
+                }
+
+            }
+        }
     }
 }

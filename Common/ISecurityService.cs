@@ -18,5 +18,9 @@ namespace Common
         [FaultContract(typeof(SecurityException))]
         void CreateFile(string fileName);
 
+        [OperationContract]
+        [FaultContract(typeof(SecurityException))]
+        void CreateFolder(string fileName);
+
     }
 }

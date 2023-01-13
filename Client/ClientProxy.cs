@@ -51,5 +51,21 @@ namespace Client
                 Console.WriteLine("Error: {0}", e.Message);
             }
         }
+
+        public void CreateFolder(string folderName)
+        {
+            try
+            {
+                factory.CreateFolder(folderName);
+            }
+            catch (FaultException<SecurityException> e)
+            {
+                Console.WriteLine("Error: {0}", e.Detail.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: {0}", e.Message);
+            }
+        }
     }
 }
