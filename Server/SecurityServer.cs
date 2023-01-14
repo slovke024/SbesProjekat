@@ -15,40 +15,6 @@ namespace Server
 {
     internal class SecurityServer : ISecurityService
     {
-        public static Dictionary<string, User> UserAccountsDB = new Dictionary<string, User>();
-
-        /// <summary>
-        /// Add new user to UserAccountsDB. Dictionary Key is "username"
-        /// </summary>
-        public void AddUser(string username, string password)
-        {
-            if (!UserAccountsDB.ContainsKey(username))
-            {
-                UserAccountsDB.Add(username, new User(username, password));
-            }
-            else
-            {
-                Console.WriteLine($"Korisnik sa korisnickim imenom {username} vec postoji u bazi");
-            }
-
-            IIdentity identity = Thread.CurrentPrincipal.Identity;
-
-            Console.WriteLine("Tip autentifikacije : " + identity.AuthenticationType);
-
-            WindowsIdentity windowsIdentity = identity as WindowsIdentity;
-
-            Console.WriteLine("Ime klijenta koji je pozvao metodu : " + windowsIdentity.Name);
-            Console.WriteLine("Jedinstveni identifikator : " + windowsIdentity.User);
-
-            Console.WriteLine("Grupe korisnika:");
-            foreach (IdentityReference group in windowsIdentity.Groups)
-            {
-                SecurityIdentifier sid = (SecurityIdentifier)group.Translate(typeof(SecurityIdentifier));
-                string name = (sid.Translate(typeof(NTAccount))).ToString();
-                Console.WriteLine(name);
-            }
-        }
-
         public void CreateFile(string fileName)
         {
             /*
@@ -179,6 +145,42 @@ namespace Server
                 else
                 {
                     Console.WriteLine("Fajl ne postoji");
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: {0}", e.Message);
+                return false;
+            }
+        }
+
+        public bool MoveTo(string fileName, string folderName)
+        {
+            try
+            {
+                string currentDirectory = Environment.CurrentDirectory;
+                string solutionPath = Path.GetFullPath(Path.Combine(currentDirectory, "..", ".."));
+                string bazePath = Path.Combine(solutionPath, "Baza");
+                string filePath = Path.Combine(bazePath, fileName);
+                string destinationPath = Path.Combine(bazePath, folderName);
+                if (File.Exists(filePath))
+                {
+                    if (Directory.Exists(destinationPath))
+                    {
+                        string newFilePath = Path.Combine(destinationPath, fileName);
+                        File.Move(filePath, newFilePath);
+                        return true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid folder name, please try again");
+                        return false;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("File doesn't exist, please check the name");
                     return false;
                 }
             }

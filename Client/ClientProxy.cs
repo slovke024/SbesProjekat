@@ -23,19 +23,7 @@ namespace Client
             factory = this.CreateChannel();
         }
 
-        public void AddUser(string username, string password)
-        {
-
-            try
-            {
-                factory.AddUser(username, password);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error: {0}", e.Message);
-            }
-        }
-
+        
         public void CreateFile(string fileName)
         {
             try
@@ -123,6 +111,23 @@ namespace Client
             try
             {
                 factory.Rename(currentFileName, newFileName);
+            }
+            catch (FaultException<SecurityException> e)
+            {
+                Console.WriteLine("Error: {0}", e.Detail.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: {0}", e.Message);
+            }
+            return false;
+        }
+
+        public bool MoveTo(string fileName, string folderName)
+        {
+            try
+            {
+                factory.MoveTo(fileName, folderName);
             }
             catch (FaultException<SecurityException> e)
             {

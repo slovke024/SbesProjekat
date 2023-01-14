@@ -50,28 +50,35 @@ namespace Client
                             List<string> directories = folderContent.Directories;
                             if (files.Count == 0)
                             {
-                                Console.WriteLine("No files in this folder.");
+                                Console.WriteLine("Nema fajlova u ovom folderu.");
+                                Console.WriteLine("****************************\n");
                             }
                             else
                             {
-                                Console.WriteLine("Files:");
+                                Console.WriteLine("Txt fajlovi:");
                                 foreach (string file in files)
                                 {
-                                    Console.WriteLine(file);
+                                    string file1 = Path.GetFileName(file);
+                                    Console.WriteLine(file1);
                                 }
+                                Console.WriteLine("****************************\n");
                             }
                             if (directories.Count == 0)
                             {
-                                Console.WriteLine("No subdirectories in this folder.");
+                                Console.WriteLine("Nema foldera unutar ovog foldera.");
+                                Console.WriteLine("****************************\n");
                             }
                             else
                             {
-                                Console.WriteLine("Directories:");
+                                Console.WriteLine("Folderi:");
                                 foreach (string directory in directories)
                                 {
-                                    Console.WriteLine(directory);
+                                    string folder = Path.GetFileName(directory);
+                                    Console.WriteLine(folder);
                                 }
+                                Console.WriteLine("****************************\n");
                             }
+                            
                             break;
                         case "2":
                             // Read file
@@ -114,32 +121,46 @@ namespace Client
                             break;
                         case "6":
                             // Rename
-                            Console.WriteLine("preimenuj fajl\n");
+                            Console.WriteLine("Preimenuj fajl\n");
                             Console.Write("Unesi trenutno ime fajla: ");
                             string currentFileName = Console.ReadLine();
                             Console.Write("Unesi novo ime fajla: ");
                             string newFileName = Console.ReadLine();
                             if (channel.Rename(currentFileName, newFileName))
+                            {
                                 Console.WriteLine("Ime fajla uspesno promenjeno!");
+                                Console.WriteLine("****************************\n");
+                            }
                             else
+                            {
                                 Console.WriteLine("Neuspesno preimenovanje");
+                                Console.WriteLine("****************************\n");
+                            }
                             break;
                         case "7":
                             // Move to
-                            Console.WriteLine("premesti fajl\n");
+                            Console.WriteLine("Premesti fajl\n");
+                            Console.Write("Unesite ime fajla: ");
+                            string fileName2 = Console.ReadLine();
+                            Console.Write("Unesite ime foldera: ");
+                            string folderName = Console.ReadLine();
+                            if (channel.MoveTo(fileName2, folderName))
+                            {
+                                Console.WriteLine("File uspesno premesten");
+                                Console.WriteLine("****************************\n");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Fajl neuspesno premesten");
+                                Console.WriteLine("****************************\n");
+                            }
                             break;
+                        
                         default:
-                            Console.WriteLine("Invalid option. Please try again.");
+                            Console.WriteLine("Nevalidna opcija!");
                             break;
                     }
                 }
-                //testiranja
-                //doda usera
-                //proxy.AddUser("pera", "peric");
-                //ne doda jer postoji vec
-                //proxy.AddUser("pera", "peric");
-                //pravi prazan txt fajl
-                //proxy.CreateFile("fajl");
             }
 
             Console.ReadLine();
@@ -149,15 +170,16 @@ namespace Client
 
         static void ShowMenu()
         {
-            Console.WriteLine("Select an option:");
-            Console.WriteLine("1. Show folder content");
-            Console.WriteLine("2. Read file");
-            Console.WriteLine("3. Create folder");
-            Console.WriteLine("4. Create file");
-            Console.WriteLine("5. Delete");
-            Console.WriteLine("6. Rename");
-            Console.WriteLine("7. Move to");
-            Console.WriteLine("8. Exit");
+            Console.WriteLine("Meni:");
+            Console.WriteLine("1. Prikazi sadrzaj foldera");
+            Console.WriteLine("2. Procitaj fajl");
+            Console.WriteLine("3. Kreiraj folder");
+            Console.WriteLine("4. Kreiraj fajl");
+            Console.WriteLine("5. Obrisi");
+            Console.WriteLine("6. Preimenuj");
+            Console.WriteLine("7. Premesti");
+            Console.WriteLine("8. IZLAZ");
+            Console.WriteLine("****************************\n");
         }
     }
 }

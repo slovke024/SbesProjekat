@@ -65,11 +65,9 @@
       <Name>SecurityManager</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Baza\A123\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Baza\TextFile1.txt" />
+    <Content Include="Baza\File1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

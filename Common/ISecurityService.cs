@@ -11,8 +11,6 @@ namespace Common
     [ServiceContract]
     public interface ISecurityService
     {
-        [OperationContract]
-        void AddUser(string username, string password);
 
         [OperationContract]
         [FaultContract(typeof(SecurityException))]
@@ -37,5 +35,9 @@ namespace Common
         [OperationContract]
         [FaultContract(typeof(SecurityException))]
         bool Rename(string currentFileName, string newFileName);
+
+        [OperationContract]
+        [FaultContract(typeof(SecurityException))]
+        bool MoveTo(string fileName, string folderName);
     }
 }
