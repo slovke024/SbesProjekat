@@ -17,7 +17,7 @@ namespace Server
 {
     internal class SecurityServer : ISecurityService
     {
-        //[PrincipalPermission(SecurityAction.Demand, Role = "Change")]
+        [PrincipalPermission(SecurityAction.Demand, Role = "Change")]
         public void CreateFile(string fileName)
         {
             /*
@@ -62,7 +62,7 @@ namespace Server
             }
         }
 
-        //[PrincipalPermission(SecurityAction.Demand, Role = "Change")]
+        [PrincipalPermission(SecurityAction.Demand, Role = "Change")]
         public void CreateFolder(string folderName)
         {
             
@@ -97,7 +97,7 @@ namespace Server
             return (files, directories);
         }
 
-        //[PrincipalPermission(SecurityAction.Demand, Role = "See")]
+        [PrincipalPermission(SecurityAction.Demand, Role = "See")]
         public string ReadFile(string fileName)
         {
             string currentDirectory = Environment.CurrentDirectory;
