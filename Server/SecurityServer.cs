@@ -1,4 +1,5 @@
 ﻿using Common;
+using SecurityManager;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -40,6 +41,9 @@ namespace Server
             IIdentity identity = Thread.CurrentPrincipal.Identity;
             WindowsIdentity windowsIdentity = identity as WindowsIdentity;
 
+            CustomPrincipal principal = Thread.CurrentPrincipal as CustomPrincipal;
+            string userName = Formatter.ParseName(principal.Identity.Name);
+
             using (windowsIdentity.Impersonate())
             {
                 Console.WriteLine($"Process Identity :{WindowsIdentity.GetCurrent().Name}");
@@ -53,6 +57,8 @@ namespace Server
                     StreamWriter sw = File.CreateText(filePath);
  
                     sw.Close();
+
+                    Audit.KreirajFajlUspesno(userName);
                 }
                 catch (Exception e)
                 {
@@ -69,6 +75,9 @@ namespace Server
             IIdentity identity = Thread.CurrentPrincipal.Identity;
             WindowsIdentity windowsIdentity = identity as WindowsIdentity;
 
+            CustomPrincipal principal = Thread.CurrentPrincipal as CustomPrincipal;
+            string userName = Formatter.ParseName(principal.Identity.Name);
+
             using (windowsIdentity.Impersonate())
             {
                 Console.WriteLine($"Process Identity :{WindowsIdentity.GetCurrent().Name}");
@@ -77,6 +86,7 @@ namespace Server
                     string currentDirectory = Environment.CurrentDirectory;
                     string folderPath = Path.Combine(currentDirectory, folderName);
                     Directory.CreateDirectory(folderPath);
+                    Audit.KreirajFolderUspesno(userName);
                 }
                 catch (Exception e)
                 {
@@ -141,6 +151,9 @@ namespace Server
         [PrincipalPermission(SecurityAction.Demand, Role = "Delete")]
         public void Delete(string fileName)
         {
+            CustomPrincipal principal = Thread.CurrentPrincipal as CustomPrincipal;
+            string userName = Formatter.ParseName(principal.Identity.Name);
+
             try
             {
                 string currentDirectory = Environment.CurrentDirectory;
@@ -148,6 +161,8 @@ namespace Server
                 string bazePath = Path.Combine(solutionPath, "Baza");
                 string filePath = Path.Combine(bazePath, fileName);
                 File.Delete(filePath);
+
+                Audit.IzbrisiFajlUspesno(userName);
             }
             catch (Exception e)
             {
@@ -158,6 +173,9 @@ namespace Server
         [PrincipalPermission(SecurityAction.Demand, Role = "Change")]
         public bool Rename(string currentFileName, string newFileName)
         {
+            CustomPrincipal principal = Thread.CurrentPrincipal as CustomPrincipal;
+            string userName = Formatter.ParseName(principal.Identity.Name);
+
             try
             {
                 string currentDirectory = Environment.CurrentDirectory;
@@ -168,6 +186,7 @@ namespace Server
                 if (File.Exists(currentFilePath))
                 {
                     File.Move(currentFilePath, newFilePath);
+                    Audit.PreimenujFajlUspesno(userName);
                     return true;
                 }
                 else
@@ -186,6 +205,8 @@ namespace Server
         [PrincipalPermission(SecurityAction.Demand, Role = "Change")]
         public bool MoveTo(string fileName, string folderName)
         {
+            CustomPrincipal principal = Thread.CurrentPrincipal as CustomPrincipal;
+            string userName = Formatter.ParseName(principal.Identity.Name);
             try
             {
                 string currentDirectory = Environment.CurrentDirectory;
@@ -199,6 +220,7 @@ namespace Server
                     {
                         string newFilePath = Path.Combine(destinationPath, fileName);
                         File.Move(filePath, newFilePath);
+                        Audit.PremestiFajlUspesno(userName);
                         return true;
                     }
                     else
