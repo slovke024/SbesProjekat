@@ -15,3 +15,10 @@ C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\Common\obj\Debug\Common.cspro
 C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
 C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\Common\obj\Debug\Common.dll
 C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\Common\obj\Debug\Common.pdb
+C:\Users\David-PC\Source\Repos\SbesProjekat\Common\bin\Debug\Common.dll.config
+C:\Users\David-PC\Source\Repos\SbesProjekat\Common\bin\Debug\Common.dll
+C:\Users\David-PC\Source\Repos\SbesProjekat\Common\bin\Debug\Common.pdb
+C:\Users\David-PC\Source\Repos\SbesProjekat\Common\obj\Debug\Common.csproj.AssemblyReference.cache
+C:\Users\David-PC\Source\Repos\SbesProjekat\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\David-PC\Source\Repos\SbesProjekat\Common\obj\Debug\Common.dll
+C:\Users\David-PC\Source\Repos\SbesProjekat\Common\obj\Debug\Common.pdb

@@ -25,3 +25,14 @@ C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\Client\obj\Debug\Client.cspro
 C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\Client\obj\Debug\Client.csproj.CopyComplete
 C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\Client\obj\Debug\Client.exe
 C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\Client\obj\Debug\Client.pdb
+C:\Users\David-PC\Source\Repos\SbesProjekat\Client\bin\Debug\Client.exe.config
+C:\Users\David-PC\Source\Repos\SbesProjekat\Client\bin\Debug\Client.exe
+C:\Users\David-PC\Source\Repos\SbesProjekat\Client\bin\Debug\Client.pdb
+C:\Users\David-PC\Source\Repos\SbesProjekat\Client\bin\Debug\Common.dll
+C:\Users\David-PC\Source\Repos\SbesProjekat\Client\bin\Debug\Common.pdb
+C:\Users\David-PC\Source\Repos\SbesProjekat\Client\bin\Debug\Common.dll.config
+C:\Users\David-PC\Source\Repos\SbesProjekat\Client\obj\Debug\Client.csproj.AssemblyReference.cache
+C:\Users\David-PC\Source\Repos\SbesProjekat\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\David-PC\Source\Repos\SbesProjekat\Client\obj\Debug\Client.csproj.CopyComplete
+C:\Users\David-PC\Source\Repos\SbesProjekat\Client\obj\Debug\Client.exe
+C:\Users\David-PC\Source\Repos\SbesProjekat\Client\obj\Debug\Client.pdb

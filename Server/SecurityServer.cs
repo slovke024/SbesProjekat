@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security;
+using System.Security.Permissions;
 using System.Security.Principal;
 using System.ServiceModel;
 using System.Text;
@@ -15,6 +16,7 @@ namespace Server
 {
     internal class SecurityServer : ISecurityService
     {
+        [PrincipalPermission(SecurityAction.Demand, Role = "Change")]
         public void CreateFile(string fileName)
         {
             /*
@@ -59,6 +61,7 @@ namespace Server
             }
         }
 
+        [PrincipalPermission(SecurityAction.Demand, Role = "Change")]
         public void CreateFolder(string folderName)
         {
             
@@ -82,6 +85,7 @@ namespace Server
             }
         }
 
+        [PrincipalPermission(SecurityAction.Demand, Role = "See")]
         public (List<string> Files, List<string> Directories) ShowFolderContent(string folderName)
         {
             string currentDirectory = Environment.CurrentDirectory;
@@ -92,6 +96,7 @@ namespace Server
             return (files, directories);
         }
 
+        [PrincipalPermission(SecurityAction.Demand, Role = "See")]
         public string ReadFile(string fileName)
         {
             string currentDirectory = Environment.CurrentDirectory;
@@ -113,6 +118,7 @@ namespace Server
             return content;
         }
 
+        [PrincipalPermission(SecurityAction.Demand, Role = "Delete")]
         public void Delete(string fileName)
         {
             try
@@ -128,6 +134,8 @@ namespace Server
                 Console.WriteLine("Error: {0}", e.Message);
             }
         }
+
+        [PrincipalPermission(SecurityAction.Demand, Role = "Change")]
         public bool Rename(string currentFileName, string newFileName)
         {
             try
@@ -155,6 +163,7 @@ namespace Server
             }
         }
 
+        [PrincipalPermission(SecurityAction.Demand, Role = "Change")]
         public bool MoveTo(string fileName, string folderName)
         {
             try
