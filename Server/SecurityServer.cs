@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security;
+using System.Security.Cryptography;
 using System.Security.Permissions;
 using System.Security.Principal;
 using System.ServiceModel;
@@ -16,7 +17,7 @@ namespace Server
 {
     internal class SecurityServer : ISecurityService
     {
-        [PrincipalPermission(SecurityAction.Demand, Role = "Change")]
+        //[PrincipalPermission(SecurityAction.Demand, Role = "Change")]
         public void CreateFile(string fileName)
         {
             /*
@@ -61,7 +62,7 @@ namespace Server
             }
         }
 
-        [PrincipalPermission(SecurityAction.Demand, Role = "Change")]
+        //[PrincipalPermission(SecurityAction.Demand, Role = "Change")]
         public void CreateFolder(string folderName)
         {
             
@@ -96,7 +97,7 @@ namespace Server
             return (files, directories);
         }
 
-        [PrincipalPermission(SecurityAction.Demand, Role = "See")]
+        //[PrincipalPermission(SecurityAction.Demand, Role = "See")]
         public string ReadFile(string fileName)
         {
             string currentDirectory = Environment.CurrentDirectory;
@@ -110,12 +111,31 @@ namespace Server
                 {
                     content = sr.ReadToEnd();
                 }
+                using (AesCryptoServiceProvider aes = new AesCryptoServiceProvider())
+                {
+                    aes.BlockSize = 128;
+                    aes.KeySize = 256;
+                    aes.Mode = CipherMode.CBC;
+                    aes.Padding = PaddingMode.PKCS7;
+                    string key = "skrfjcmbksodjeskdosesmvkdsdtrksd";
+                    string iv = "sjtrvkdsktmbgfsk";
+                    aes.Key = System.Text.ASCIIEncoding.ASCII.GetBytes(key);
+                    aes.IV = System.Text.ASCIIEncoding.ASCII.GetBytes(iv);
+
+                    byte[] plainText = System.Text.ASCIIEncoding.ASCII.GetBytes(content);
+                    byte[] cipherText;
+
+                    ICryptoTransform crypto = aes.CreateEncryptor(aes.Key, aes.IV);
+                    cipherText = crypto.TransformFinalBlock(plainText, 0, plainText.Length);
+                    crypto.Dispose();
+                    return Convert.ToBase64String(cipherText);
+                }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error reading file: " + ex.Message);
+                return ("Greska!");
             }
-            return content;
         }
 
         [PrincipalPermission(SecurityAction.Demand, Role = "Delete")]

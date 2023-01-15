@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Security.Principal;
 using System.ServiceModel;
 using System.Text;
@@ -89,8 +90,25 @@ namespace Client
 
                             if (!string.IsNullOrEmpty(content))
                             {
-                                Console.WriteLine("Sadrzaj fajla:");
-                                Console.WriteLine(content);
+                                using (AesCryptoServiceProvider aes = new AesCryptoServiceProvider())
+                                {
+                                    aes.BlockSize = 128;
+                                    aes.KeySize = 256;
+                                    aes.Mode = CipherMode.CBC;
+                                    aes.Padding = PaddingMode.PKCS7;
+                                    string key = "skrfjcmbksodjeskdosesmvkdsdtrksd";
+                                    string iv = "sjtrvkdsktmbgfsk";
+                                    aes.Key = System.Text.ASCIIEncoding.ASCII.GetBytes(key);
+                                    aes.IV = System.Text.ASCIIEncoding.ASCII.GetBytes(iv);
+
+                                    byte[] plainText = Convert.FromBase64String(content);
+                                    byte[] cipherText;
+
+                                    ICryptoTransform crypto = aes.CreateDecryptor(aes.Key, aes.IV);
+                                    cipherText = crypto.TransformFinalBlock(plainText, 0, plainText.Length);
+                                    crypto.Dispose();
+                                    Console.WriteLine(System.Text.ASCIIEncoding.ASCII.GetString(cipherText));
+                                }
                             }
                             else
                             {
