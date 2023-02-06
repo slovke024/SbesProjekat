@@ -40,13 +40,11 @@ C:\Users\David-PC\Source\Repos\SbesProjekat\Server\bin\Debug\Server.exe
 C:\Users\David-PC\Source\Repos\SbesProjekat\Server\bin\Debug\Server.pdb
 C:\Users\David-PC\Source\Repos\SbesProjekat\Server\bin\Debug\Client.exe
 C:\Users\David-PC\Source\Repos\SbesProjekat\Server\bin\Debug\Common.dll
-C:\Users\David-PC\Source\Repos\SbesProjekat\Server\bin\Debug\SecurityManager.exe
 C:\Users\David-PC\Source\Repos\SbesProjekat\Server\bin\Debug\Client.pdb
 C:\Users\David-PC\Source\Repos\SbesProjekat\Server\bin\Debug\Client.exe.config
 C:\Users\David-PC\Source\Repos\SbesProjekat\Server\bin\Debug\Common.pdb
 C:\Users\David-PC\Source\Repos\SbesProjekat\Server\bin\Debug\Common.dll.config
 C:\Users\David-PC\Source\Repos\SbesProjekat\Server\bin\Debug\SecurityManager.pdb
-C:\Users\David-PC\Source\Repos\SbesProjekat\Server\bin\Debug\SecurityManager.exe.config
 C:\Users\David-PC\Source\Repos\SbesProjekat\Server\obj\Debug\Server.csproj.AssemblyReference.cache
 C:\Users\David-PC\Source\Repos\SbesProjekat\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
 C:\Users\David-PC\Source\Repos\SbesProjekat\Server\obj\Debug\Server.csproj.CopyComplete
@@ -54,3 +52,5 @@ C:\Users\David-PC\Source\Repos\SbesProjekat\Server\obj\Debug\Server.exe
 C:\Users\David-PC\Source\Repos\SbesProjekat\Server\obj\Debug\Server.pdb
 C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\Server\bin\Debug\SecurityManager.dll
 C:\Users\slobara\Desktop\SbesProjekat\SbesProjekat\Server\bin\Debug\SecurityManager.dll.config
+C:\Users\David-PC\source\repos\SbesProjekat\Server\bin\Debug\SecurityManager.dll
+C:\Users\David-PC\source\repos\SbesProjekat\Server\bin\Debug\SecurityManager.dll.config

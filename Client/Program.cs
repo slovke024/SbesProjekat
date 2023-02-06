@@ -121,7 +121,7 @@ namespace Client
                             Console.WriteLine("Kreiraj folder\n");
                             Console.WriteLine("Unesite ime foldera:\n");
                             string imeFoldera1 = Console.ReadLine();
-                            channel.CreateFile(imeFoldera1);
+                            channel.CreateFolder(imeFoldera1);
                             break;
                         case "4":
                             // Create file
